@@ -77,12 +77,10 @@ requiere adiciones a LaTeX.
 
 ### Ejemplos
 
-Ver [aquí](./experimental_data) para ver algunos CSVs con nombres semánticos.
-
 En [plotter.py](./plotter.py) se muestra cómo crear gráficos usando matplotlib.
 Ver ejemplos de estos en [sample_plots](./sample_plots).
 
 En [experimental_data](./experimental_data) se encuentran algunos CSVs generados con
-uhr y también se presenta un [ejemplo](./experimental_data/ejemplo/ejemplo.pdf) para ver qué tal
+uhr (con nombres semánticos) y también se presenta un [ejemplo](./experimental_data/ejemplo/ejemplo.pdf) para ver qué tal
 quedan los gráficos usando pgfplots y las tablas usando csvltx.
 [Aquí](./experimental_data/ejemplo/ejemplo.tex) se puede ver la fuente de este ejemplo.

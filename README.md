@@ -45,7 +45,7 @@ es decir si todo se ejecuta rápidamente, usar nanosegundos, si se demora un
 poco más, usar micro segundos, luego milisegundos... En este sentido es bueno
 tener nombres de archivos _semánticos_. Yo uso: `<elemento probado> + '_' + <unidad
 de tiempo>`. Así los CSVs se describen solos, se puede saber qué información
-contienen y en qué unidades está (ver [aquí](./experimental_data)).
+contienen y en qué unidades está.
 
 ### Gráficos
 
@@ -53,8 +53,6 @@ Se recomienda usar [matplotlib](https://matplotlib.org) para hacer los gráficos
 
 Una alternativa es [pgfplots](https://ctan.org/pkg/pgfplots?lang=en) que sirve
 para crear un gráfico en LaTeX directamente de un CSV.
-Ver [ejemplo](./experimental_data/ejemplo/ejemplo.tex) para ver la sintáxis de
-creación de gráficos normales, semi-log y log-log.
 
 ### Tablas
 
@@ -79,9 +77,12 @@ requiere adiciones a LaTeX.
 
 ### Ejemplos
 
-[plotter.py](./plotter.py) muestra cómo crear gráficos usando matplotlib.
+Ver [aquí](./experimental_data) para ver algunos CSVs con nombres semánticos.
+
+En [plotter.py](./plotter.py) se muestra cómo crear gráficos usando matplotlib.
 Ver ejemplos de estos en [sample_plots](./sample_plots).
 
 En [experimental_data](./experimental_data) se encuentran algunos CSVs generados con
 uhr y también se presenta un [ejemplo](./experimental_data/ejemplo/ejemplo.pdf) para ver qué tal
 quedan los gráficos usando pgfplots y las tablas usando csvltx.
+[Aquí](./experimental_data/ejemplo/ejemplo.tex) se puede ver la fuente de este ejemplo.

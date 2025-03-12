@@ -17,7 +17,6 @@
 #include <random>
 #include <vector>
 
-#include "quartiles.cpp"
 #include "utils.cpp"
 
 // Include to be tested files here
@@ -57,9 +56,6 @@ int main(int argc, char *argv[])
         time_stdev = 0;
 
         // Test configuration goes here
-        std::vector<double> leo(n);
-        for (auto& x: leo)
-            x = u_distr(rng);
 
         // Run to compute elapsed time
         for (i = 0; i < runs; i++) {
@@ -68,7 +64,6 @@ int main(int argc, char *argv[])
 
             begin_time = std::chrono::high_resolution_clock::now();
             // Function to test goes here
-            quartiles(leo, q);
             end_time = std::chrono::high_resolution_clock::now();
 
             elapsed_time = end_time - begin_time;

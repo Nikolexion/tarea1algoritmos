@@ -1,50 +1,13 @@
 /** Author: LELE */
 
-#ifndef QUARTILES
-#define QUARTILES
+#ifndef QUARTILES_NTH
+#define QUARTILES_NTH
 
 #include <algorithm>
 #include <cstddef>
 #include <cstdlib>
 #include <iostream>
 #include <vector>
-
-inline void quartiles(std::vector<double>& data, std::vector<double>& q)
-{
-    q.resize(5);
-    std::size_t n = data.size();
-    std::size_t p;
-
-    std::sort(data.begin(), data.end());
-
-    if (n < 4) {
-        std::cerr << "quartiles needs at least 4 data points." << std::endl;
-        std::exit(EXIT_FAILURE);
-    }
-
-    // Get min and max
-    q[0] = data.front();
-    q[4] = data.back();
-
-    // Find median
-    if (n % 2 == 1) {
-        q[2] = data[n / 2];
-    } else {
-        p = n / 2;
-        q[2] = (data[p - 1] + data[p]) / 2.0;
-    }
-
-    // Find lower and upper quartiles
-    if (n % 4 >= 2) {
-        q[1] = data[n / 4];
-        q[3] = data[(3 * n) / 4];
-    } else {
-        p = n / 4;
-        q[1] = 0.25 * data[p - 1] + 0.75 * data[p];
-        p = (3 * n) / 4;
-        q[3] = 0.75 * data[p - 1] + 0.25 * data[p];
-    }
-}
 
 inline void quartiles_nth(std::vector<double>& data, std::vector<double>& q)
 {

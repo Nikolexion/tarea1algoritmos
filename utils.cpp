@@ -3,12 +3,14 @@
 #ifndef UTILS
 #define UTILS
 
+#include <algorithm>
 #include <cstddef>
 #include <cstdint>
 #include <cstdlib>
 #include <iostream>
 #include <stdexcept>
 #include <string>
+#include <vector>
 
 inline void validate_input(int argc, char *argv[], std::int64_t& runs,
     std::int64_t& lower, std::int64_t& upper, std::int64_t& step)
@@ -70,6 +72,43 @@ inline void display_progress(std::int64_t u, std::int64_t v)
     }
     std::cerr << "] " << std::int64_t(progress * 100.0) << "%\r\033[0m";
     std::cerr.flush();
+}
+
+inline void quartiles(std::vector<double>& data, std::vector<double>& q)
+{
+    q.resize(5);
+    std::size_t n = data.size();
+    std::size_t p;
+
+    std::sort(data.begin(), data.end());
+
+    if (n < 4) {
+        std::cerr << "quartiles needs at least 4 data points." << std::endl;
+        std::exit(EXIT_FAILURE);
+    }
+
+    // Get min and max
+    q[0] = data.front();
+    q[4] = data.back();
+
+    // Find median
+    if (n % 2 == 1) {
+        q[2] = data[n / 2];
+    } else {
+        p = n / 2;
+        q[2] = (data[p - 1] + data[p]) / 2.0;
+    }
+
+    // Find lower and upper quartiles
+    if (n % 4 >= 2) {
+        q[1] = data[n / 4];
+        q[3] = data[(3 * n) / 4];
+    } else {
+        p = n / 4;
+        q[1] = 0.25 * data[p - 1] + 0.75 * data[p];
+        p = (3 * n) / 4;
+        q[3] = 0.75 * data[p - 1] + 0.25 * data[p];
+    }
 }
 
 #endif

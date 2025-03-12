@@ -70,16 +70,18 @@ requiere adiciones a LaTeX.
 
 ### Gráficos
 
-Se recomienda usar [pgfplots](https://ctan.org/pkg/pgfplots?lang=en) o
-[matplotlib](https://matplotlib.org) para hacer los gráficos, especialmente la
-primera opción. Esto pues todo el pipeline anterior se integra muy bien pues
-pgfplots puede hacer un gráfico directamente de un CSV.
+Se recomienda usar [matplotlib](https://matplotlib.org) para hacer los gráficos.
 
-Ver [ejemplo](./ejemplo.tex) para ver la sintáxis de creación de gráficos normales,
-semi-log y log-log para distintos CSVs.
+Una alternativa es [pgfplots](https://ctan.org/pkg/pgfplots?lang=en) que sirve
+para crear un gráfico en LaTeX directamente de un CSV.
+Ver [ejemplo](./experimental_data/ejemplo/ejemplo.tex) para ver la sintáxis de
+creación de gráficos normales, semi-log y log-log.
 
 ### Ejemplos
 
-En [experimental_data](./experimental_data) se encuentran algunos CSV generados con
-uhr y también se presenta un [ejemplo](./ejemplo.pdf) para que se vean qué tal
-quedan los gráficos y tablas usando los procesos recomendados.
+[plotter.py](./plotter.py) muestra cómo crear gráficos usando matplotlib.
+Ver ejemplos de estos en [sample_plots](./sample_plots).
+
+En [experimental_data](./experimental_data) se encuentran algunos CSVs generados con
+uhr y también se presenta un [ejemplo](./experimental_data/ejemplo/ejemplo.pdf) para ver qué tal
+quedan los gráficos usando pgfplots y las tablas usando csvltx.

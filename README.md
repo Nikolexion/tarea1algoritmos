@@ -78,7 +78,7 @@ requiere adiciones a LaTeX.
 ### Ejemplos
 
 En [plotter](./plotter.py) se muestra cómo crear gráficos usando matplotlib.
-Ver ejemplos de estos en [sample_plots](./sample_plots).
+Ver ejemplos de estos en [sample_plots](./sample_plots.png).
 
 En [experimental_data](./experimental_data) se encuentran algunos CSVs generados con
 uhr (con nombres semánticos) y también se presenta un [ejemplo](./experimental_data/ejemplo/ejemplo.pdf) para ver qué tal

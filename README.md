@@ -77,7 +77,7 @@ requiere adiciones a LaTeX.
 
 ### Ejemplos
 
-En [plotter.py](./plotter.py) se muestra cómo crear gráficos usando matplotlib.
+En [plotter](./plotter.py) se muestra cómo crear gráficos usando matplotlib.
 Ver ejemplos de estos en [sample_plots](./sample_plots).
 
 En [experimental_data](./experimental_data) se encuentran algunos CSVs generados con

@@ -8,7 +8,7 @@ realizar experimentos. Estos consumen tiempo y como es una tarea
 repetitiva les ofrecemos soluciones precisas y estándares para estas.
 
 En [uhr](./uhr.cpp) (reloj, en alemán) está un cronómetro configurable
-que reporta _tiempo promedio y desviación estándar_ para un set de tests.
+que reporta _tiempo promedio, desviación estándar y cuartiles_ para un set de tests.
 
 ### Compilación
 
@@ -16,11 +16,11 @@ que reporta _tiempo promedio y desviación estándar_ para un set de tests.
 g++ -std=c++11 -O0 -o uhr uhr.cpp
 ```
 
-Se pueden usar versiones más nuevas de C++ (14, 17, 20), pero NO anteriores
+Se pueden usar versiones más nuevas de C++ (14, 17, 20), pero **no** anteriores
 a C++11. Se debe usar `-O0` para que el compilador no optimice el loop en
 donde se realiza la medición de tiempo. Así que se recomienda programar
-usando técnicas de optimización como hoisting para evitar recalcular en
-ciclos.
+usando técnicas de optimización como [hoisting](https://en.wikipedia.org/wiki/Loop-invariant_code_motion)
+para evitar recalcular en ciclos.
 
 ### Uso
 
@@ -29,12 +29,12 @@ ciclos.
 ```
 
 Donde `<filename>` es el nombre de archivo donde se escribirán los resultados.
-El archivo no debe existir previamente y debe tener extensión `.csv`. Los
+El archivo **no** debe existir previamente y debe tener extensión `.csv`. Los
 siguientes argumentos describen las pruebas, todos deben ser positivos e
 indican cuántas repeticiones por prueba, límites inferior y superior y
 el salto prueba a prueba, respectivamente.
 
-Se recomienda que `<runs>` sea al menos igual a 32, esto para poder tener
+`<runs>` debe ser al menos igual a 32, esto para poder tener
 los caches en caliente y poder tener suficientes muestras para confianza
 estadística. Yo tiendo a hacer 256 repeticiones si es que es permisivo esto
 en tiempo, en caso contrario uso 64 y si es que cada experimento se demora
@@ -43,9 +43,18 @@ alrededor de un segundo es que uso 32.
 Se recomienda que se deben escoger unidades de tiempo que sean significativas:
 es decir si todo se ejecuta rápidamente, usar nanosegundos, si se demora un
 poco más, usar micro segundos, luego milisegundos... En este sentido es bueno
-tener nombres de archivos _semánticos_. Yo uso: elemento probado + _ + unidad
-de tiempo. Así los CSVs se describen solos, se puede saber qué información
-contienen y en qué unidades está.
+tener nombres de archivos _semánticos_. Yo uso: `<elemento probado> + '_' + <unidad
+de tiempo>`. Así los CSVs se describen solos, se puede saber qué información
+contienen y en qué unidades está (ver [aquí](./experimental_data)).
+
+### Gráficos
+
+Se recomienda usar [matplotlib](https://matplotlib.org) para hacer los gráficos.
+
+Una alternativa es [pgfplots](https://ctan.org/pkg/pgfplots?lang=en) que sirve
+para crear un gráfico en LaTeX directamente de un CSV.
+Ver [ejemplo](./experimental_data/ejemplo/ejemplo.tex) para ver la sintáxis de
+creación de gráficos normales, semi-log y log-log.
 
 ### Tablas
 
@@ -67,15 +76,6 @@ Tambien existe una alternativa en Python usando Pandas, que es
 el uso de este requiere cargar el CSV como DataFrame y usar el paquete `booktabs`
 en LaTeX, así que la alternativa en Rust funciona puramente en la terminal y no
 requiere adiciones a LaTeX.
-
-### Gráficos
-
-Se recomienda usar [matplotlib](https://matplotlib.org) para hacer los gráficos.
-
-Una alternativa es [pgfplots](https://ctan.org/pkg/pgfplots?lang=en) que sirve
-para crear un gráfico en LaTeX directamente de un CSV.
-Ver [ejemplo](./experimental_data/ejemplo/ejemplo.tex) para ver la sintáxis de
-creación de gráficos normales, semi-log y log-log.
 
 ### Ejemplos
 

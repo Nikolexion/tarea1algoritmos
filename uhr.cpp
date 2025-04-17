@@ -9,6 +9,7 @@
  * 4. Additive or multiplicative stepping,
  * 5. The experiments: in outer for loop. */
 
+ // Para compilar usar: g++ -std=c++11 -O0 -o uhr uhr.cpp bruteforce.cpp distancia_euc.cpp
 #include <cstdint>
 #include <chrono>
 #include <cmath>
@@ -20,6 +21,7 @@
 #include "utils.cpp"
 
 // Include to be tested files here
+#include "bruteforce.h"
 
 int main(int argc, char *argv[])
 {
@@ -56,6 +58,12 @@ int main(int argc, char *argv[])
         time_stdev = 0;
 
         // Test configuration goes here
+        std::pair<double,double> data[n];
+        double valor;
+        for (i = 0; i < n; i++) {
+            data[i].first = u_distr(rng);
+            data[i].second = u_distr(rng);
+        }
 
         // Run to compute elapsed time
         for (i = 0; i < runs; i++) {
@@ -64,7 +72,10 @@ int main(int argc, char *argv[])
 
             begin_time = std::chrono::high_resolution_clock::now();
             // Function to test goes here
+            valor = bruteforce(data,n);               
+
             end_time = std::chrono::high_resolution_clock::now();
+            std::cout << (valor) << std::endl;
 
             elapsed_time = end_time - begin_time;
             times[i] = elapsed_time.count();

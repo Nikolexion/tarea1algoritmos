@@ -10,6 +10,7 @@
  * 5. The experiments: in outer for loop. */
 
  // Para compilar usar: g++ -std=c++11 -O0 -o uhr uhr.cpp bruteforce.cpp distancia_euc.cpp
+ // Para ejecutar usar: ./uhr <filename> <RUNS> <LOWER> <UPPER> <STEP> donde runs > 32, lower debria ser 2^3 = 8, upper debria ser 2^9=512
 #include <cstdint>
 #include <chrono>
 #include <cmath>

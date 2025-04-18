@@ -4,6 +4,6 @@
 
 bool compararX(const std::pair<double, double>& a, const std::pair<double, double>& b);
 bool compararY(const std::pair<double, double>& a, const std::pair<double, double>& b);
-double divide_and__conquer(std::pair<double, double> n[], int tam, bool esta_desordenado);
+double divide_and_conquer(std::pair<double, double> n[], int tam, bool esta_desordenado);
 
 #endif

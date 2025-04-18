@@ -23,6 +23,7 @@
 
 // Include to be tested files here
 #include "bruteforce.h"
+#include "divide_and_conquer.h"
 
 int main(int argc, char *argv[])
 {
@@ -73,7 +74,10 @@ int main(int argc, char *argv[])
 
             begin_time = std::chrono::high_resolution_clock::now();
             // Function to test goes here
-            valor = bruteforce(data,n);               
+            valor = bruteforce(data,n);    
+            /*
+            valor = divide_and__conquer(data,n,true);
+            */           
 
             end_time = std::chrono::high_resolution_clock::now();
             std::cout << (valor) << std::endl;
